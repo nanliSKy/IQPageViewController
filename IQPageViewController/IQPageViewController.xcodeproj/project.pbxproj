@@ -14,15 +14,12 @@
 		291A64972446AD4100E908AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 291A64962446AD4100E908AC /* Assets.xcassets */; };
 		291A649A2446AD4100E908AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 291A64982446AD4100E908AC /* LaunchScreen.storyboard */; };
 		291A649D2446AD4100E908AC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 291A649C2446AD4100E908AC /* main.m */; };
-		291A64A52446B4DE00E908AC /* IQPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 291A64A42446B4DE00E908AC /* IQPageViewController.m */; };
-		291A64B12446D6DF00E908AC /* IQPageScrTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 291A64B02446D6DF00E908AC /* IQPageScrTitleView.m */; };
-		291A64B42446D6F600E908AC /* IQPageContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 291A64B32446D6F600E908AC /* IQPageContainerView.m */; };
-		291A64B72446D88100E908AC /* IQPageScrTitleViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 291A64B62446D88100E908AC /* IQPageScrTitleViewCell.m */; };
-		291A64BA2446E12400E908AC /* IQPageContainerViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 291A64B92446E12400E908AC /* IQPageContainerViewCell.m */; };
-		291A64BD2446E1C900E908AC /* IQPageScrContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 291A64BC2446E1C900E908AC /* IQPageScrContainerView.m */; };
-		295BBEA6244802180058C849 /* IQPageScrContainerViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 295BBEA5244802180058C849 /* IQPageScrContainerViewCell.m */; };
+		29348DBB2451BA4600BDDA9A /* IQPageScrTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 29348DB12451BA4500BDDA9A /* IQPageScrTitleView.m */; };
+		29348DBC2451BA4600BDDA9A /* IQPageScrTitleViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 29348DB22451BA4500BDDA9A /* IQPageScrTitleViewCell.m */; };
+		29348DBD2451BA4600BDDA9A /* IQPageContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29348DB62451BA4600BDDA9A /* IQPageContainerViewController.m */; };
+		29348DBE2451BA4600BDDA9A /* IQPageScrContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 29348DB72451BA4600BDDA9A /* IQPageScrContainerView.m */; };
+		29348DBF2451BA4600BDDA9A /* IQPageTitleConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 29348DB82451BA4600BDDA9A /* IQPageTitleConfig.m */; };
 		295BBEA924483BD60058C849 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 295BBEA824483BD60058C849 /* ListViewController.m */; };
-		295BBEAC2449458D0058C849 /* IQPageTitleConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 295BBEAB2449458D0058C849 /* IQPageTitleConfig.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,24 +35,18 @@
 		291A64992446AD4100E908AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		291A649B2446AD4100E908AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		291A649C2446AD4100E908AC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		291A64A32446B4DE00E908AC /* IQPageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IQPageViewController.h; sourceTree = "<group>"; };
-		291A64A42446B4DE00E908AC /* IQPageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IQPageViewController.m; sourceTree = "<group>"; };
-		291A64AF2446D6DF00E908AC /* IQPageScrTitleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IQPageScrTitleView.h; sourceTree = "<group>"; };
-		291A64B02446D6DF00E908AC /* IQPageScrTitleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IQPageScrTitleView.m; sourceTree = "<group>"; };
-		291A64B22446D6F600E908AC /* IQPageContainerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IQPageContainerView.h; sourceTree = "<group>"; };
-		291A64B32446D6F600E908AC /* IQPageContainerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IQPageContainerView.m; sourceTree = "<group>"; };
-		291A64B52446D88100E908AC /* IQPageScrTitleViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IQPageScrTitleViewCell.h; sourceTree = "<group>"; };
-		291A64B62446D88100E908AC /* IQPageScrTitleViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IQPageScrTitleViewCell.m; sourceTree = "<group>"; };
-		291A64B82446E12400E908AC /* IQPageContainerViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IQPageContainerViewCell.h; sourceTree = "<group>"; };
-		291A64B92446E12400E908AC /* IQPageContainerViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IQPageContainerViewCell.m; sourceTree = "<group>"; };
-		291A64BB2446E1C900E908AC /* IQPageScrContainerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IQPageScrContainerView.h; sourceTree = "<group>"; };
-		291A64BC2446E1C900E908AC /* IQPageScrContainerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IQPageScrContainerView.m; sourceTree = "<group>"; };
-		295BBEA4244802180058C849 /* IQPageScrContainerViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IQPageScrContainerViewCell.h; sourceTree = "<group>"; };
-		295BBEA5244802180058C849 /* IQPageScrContainerViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IQPageScrContainerViewCell.m; sourceTree = "<group>"; };
+		29348DB12451BA4500BDDA9A /* IQPageScrTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQPageScrTitleView.m; sourceTree = "<group>"; };
+		29348DB22451BA4500BDDA9A /* IQPageScrTitleViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQPageScrTitleViewCell.m; sourceTree = "<group>"; };
+		29348DB32451BA4500BDDA9A /* IQPageScrTitleViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQPageScrTitleViewCell.h; sourceTree = "<group>"; };
+		29348DB42451BA4500BDDA9A /* IQPageScrTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQPageScrTitleView.h; sourceTree = "<group>"; };
+		29348DB52451BA4500BDDA9A /* IQPageTitleConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQPageTitleConfig.h; sourceTree = "<group>"; };
+		29348DB62451BA4600BDDA9A /* IQPageContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQPageContainerViewController.m; sourceTree = "<group>"; };
+		29348DB72451BA4600BDDA9A /* IQPageScrContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQPageScrContainerView.m; sourceTree = "<group>"; };
+		29348DB82451BA4600BDDA9A /* IQPageTitleConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQPageTitleConfig.m; sourceTree = "<group>"; };
+		29348DB92451BA4600BDDA9A /* IQPageScrContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQPageScrContainerView.h; sourceTree = "<group>"; };
+		29348DBA2451BA4600BDDA9A /* IQPageContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQPageContainerViewController.h; sourceTree = "<group>"; };
 		295BBEA724483BD60058C849 /* ListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
 		295BBEA824483BD60058C849 /* ListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
-		295BBEAA2449458D0058C849 /* IQPageTitleConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IQPageTitleConfig.h; sourceTree = "<group>"; };
-		295BBEAB2449458D0058C849 /* IQPageTitleConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IQPageTitleConfig.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +88,6 @@
 				291A64912446AD3F00E908AC /* ViewController.m */,
 				295BBEA724483BD60058C849 /* ListViewController.h */,
 				295BBEA824483BD60058C849 /* ListViewController.m */,
-				291A64A32446B4DE00E908AC /* IQPageViewController.h */,
-				291A64A42446B4DE00E908AC /* IQPageViewController.m */,
 				291A64932446AD3F00E908AC /* Main.storyboard */,
 				291A64962446AD4100E908AC /* Assets.xcassets */,
 				291A64982446AD4100E908AC /* LaunchScreen.storyboard */,
@@ -111,20 +100,16 @@
 		29348D6D2451383500BDDA9A /* IQPageContainer */ = {
 			isa = PBXGroup;
 			children = (
-				291A64BB2446E1C900E908AC /* IQPageScrContainerView.h */,
-				291A64BC2446E1C900E908AC /* IQPageScrContainerView.m */,
-				295BBEA4244802180058C849 /* IQPageScrContainerViewCell.h */,
-				295BBEA5244802180058C849 /* IQPageScrContainerViewCell.m */,
-				291A64AF2446D6DF00E908AC /* IQPageScrTitleView.h */,
-				291A64B02446D6DF00E908AC /* IQPageScrTitleView.m */,
-				295BBEAA2449458D0058C849 /* IQPageTitleConfig.h */,
-				295BBEAB2449458D0058C849 /* IQPageTitleConfig.m */,
-				291A64B52446D88100E908AC /* IQPageScrTitleViewCell.h */,
-				291A64B62446D88100E908AC /* IQPageScrTitleViewCell.m */,
-				291A64B22446D6F600E908AC /* IQPageContainerView.h */,
-				291A64B32446D6F600E908AC /* IQPageContainerView.m */,
-				291A64B82446E12400E908AC /* IQPageContainerViewCell.h */,
-				291A64B92446E12400E908AC /* IQPageContainerViewCell.m */,
+				29348DBA2451BA4600BDDA9A /* IQPageContainerViewController.h */,
+				29348DB62451BA4600BDDA9A /* IQPageContainerViewController.m */,
+				29348DB92451BA4600BDDA9A /* IQPageScrContainerView.h */,
+				29348DB72451BA4600BDDA9A /* IQPageScrContainerView.m */,
+				29348DB42451BA4500BDDA9A /* IQPageScrTitleView.h */,
+				29348DB12451BA4500BDDA9A /* IQPageScrTitleView.m */,
+				29348DB32451BA4500BDDA9A /* IQPageScrTitleViewCell.h */,
+				29348DB22451BA4500BDDA9A /* IQPageScrTitleViewCell.m */,
+				29348DB52451BA4500BDDA9A /* IQPageTitleConfig.h */,
+				29348DB82451BA4600BDDA9A /* IQPageTitleConfig.m */,
 			);
 			path = IQPageContainer;
 			sourceTree = "<group>";
@@ -199,19 +184,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				291A64B72446D88100E908AC /* IQPageScrTitleViewCell.m in Sources */,
 				291A64922446AD3F00E908AC /* ViewController.m in Sources */,
-				295BBEAC2449458D0058C849 /* IQPageTitleConfig.m in Sources */,
+				29348DBF2451BA4600BDDA9A /* IQPageTitleConfig.m in Sources */,
 				295BBEA924483BD60058C849 /* ListViewController.m in Sources */,
 				291A648C2446AD3F00E908AC /* AppDelegate.m in Sources */,
-				291A64A52446B4DE00E908AC /* IQPageViewController.m in Sources */,
-				291A64B12446D6DF00E908AC /* IQPageScrTitleView.m in Sources */,
+				29348DBB2451BA4600BDDA9A /* IQPageScrTitleView.m in Sources */,
 				291A649D2446AD4100E908AC /* main.m in Sources */,
-				291A64B42446D6F600E908AC /* IQPageContainerView.m in Sources */,
-				295BBEA6244802180058C849 /* IQPageScrContainerViewCell.m in Sources */,
-				291A64BD2446E1C900E908AC /* IQPageScrContainerView.m in Sources */,
-				291A64BA2446E12400E908AC /* IQPageContainerViewCell.m in Sources */,
+				29348DBE2451BA4600BDDA9A /* IQPageScrContainerView.m in Sources */,
 				291A648F2446AD3F00E908AC /* SceneDelegate.m in Sources */,
+				29348DBC2451BA4600BDDA9A /* IQPageScrTitleViewCell.m in Sources */,
+				29348DBD2451BA4600BDDA9A /* IQPageContainerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,6 +336,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3JRZ4BFGFJ;
 				INFOPLIST_FILE = IQPageViewController/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -371,6 +354,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3JRZ4BFGFJ;
 				INFOPLIST_FILE = IQPageViewController/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -8,8 +8,7 @@
 
 #import "IQPageScrContainerView.h"
 
-
-#import "IQPageScrContainerViewCell.h"
+#import "IQPageContainerViewController.h"
 
 @interface IQPageScrContainerView ()<UITableViewDataSource, UITableViewDelegate, IQPageContainerScrollerDelegate, IQPageScrTitleViewScrollerDelegate>
 
@@ -18,11 +17,26 @@
 
 /** */
 @property (nonatomic, assign) BOOL tableHeaderViewScroll;
-
+/** */
+@property (nonatomic, strong) IQPageContainerViewController *containerVC;
 @end
 
 @implementation IQPageScrContainerView
 
+static UIViewController *_sj_get_top_view_controller() {
+    UIViewController *vc = UIApplication.sharedApplication.keyWindow.rootViewController;
+    while (  [vc isKindOfClass:[UINavigationController class]] ||
+             [vc isKindOfClass:[UITabBarController class]] ||
+              vc.presentedViewController ) {
+        if ( [vc isKindOfClass:[UINavigationController class]] )
+            vc = [(UINavigationController *)vc topViewController];
+        if ( [vc isKindOfClass:[UITabBarController class]] )
+            vc = [(UITabBarController *)vc selectedViewController];
+        if ( vc.presentedViewController )
+            vc = vc.presentedViewController;
+    }
+    return vc;
+}
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -37,7 +51,7 @@
 - (void)subviewCreate {
     
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.frame), 200)];
-    self.tableHeaderViewScroll = NO;
+    self.tableHeaderViewScroll = YES;
     self.tableHeaderView = headerView;
     headerView.backgroundColor = [UIColor purpleColor];
     self.tableView.tableHeaderView = headerView;
@@ -62,12 +76,25 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    IQPageScrContainerViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([IQPageScrContainerViewCell class])];
-    cell.containerView.pageContainerScrollerDelegate = self;
-    cell.containerView.viewControllerList = self.viewControllerList;
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class])];
+    
+    self.containerVC.viewControllerList = self.viewControllerList;
+    [_sj_get_top_view_controller() addChildViewController:self.containerVC];
+    self.containerVC.view.frame = cell.bounds;
+    [cell.contentView addSubview:self.containerVC.view];
+    [self.containerVC didMoveToParentViewController:_sj_get_top_view_controller()];
+//    cell.containerView.pageContainerScrollerDelegate = self;
+//    cell.containerView.viewControllerList = self.viewControllerList;
     return cell;
 }
 
+- (IQPageContainerViewController *)containerVC {
+    if (!_containerVC) {
+        _containerVC = [[IQPageContainerViewController alloc] init];
+        _containerVC.pageContainerScrollerDelegate = self;
+    }
+    return _containerVC;
+}
 
 #pragma mark IQPageContainerScrollerDelegate
 
@@ -85,8 +112,8 @@
 
 #pragma mark IQPageScrTitleViewScrollerDelegate
 - (void)iQPageScrTitleViewDidScroll:(NSInteger)index {
-    IQPageScrContainerViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-    [cell.containerView iQPageContainerScrollerDidScroll:index distanceProgress:0];
+
+    [self.containerVC iQPageContainerScrollerDidScroll:index distanceProgress:0];
 }
 
 
@@ -98,11 +125,11 @@
         _tableView.showsHorizontalScrollIndicator = NO;
         _tableView.sectionHeaderHeight = self.titleViewHeight;
         CGFloat rowHeight = CGRectGetHeight(self.frame)-self.titleViewHeight;
-        if (!self.tableHeaderViewScroll) {
+        if (self.tableHeaderViewScroll) {
             rowHeight -= 200;
         }
         _tableView.rowHeight = rowHeight;
-        [_tableView registerClass:[IQPageScrContainerViewCell class] forCellReuseIdentifier:NSStringFromClass([IQPageScrContainerViewCell class])];
+        [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
         if (@available(iOS 11.0, *)) {
             self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
         }

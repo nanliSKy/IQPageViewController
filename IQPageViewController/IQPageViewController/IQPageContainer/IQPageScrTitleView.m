@@ -39,8 +39,6 @@
 /** */
 @property (nonatomic, assign) NSInteger currentIndex;
 /** */
-@property (nonatomic, assign) UIEdgeInsets edgeInsets;
-/** */
 @property (nonatomic, strong) UIView *indicatorView;
 /** */
 @property (nonatomic, strong) UIView *indicatorBackView;
@@ -85,7 +83,6 @@
     _indicatorWidth = 80;
     self.currentIndex = 0;
     self.column = 4;
-    self.edgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
     [self addSubview:self.backScrView];
     [self addSubview:self.collectionView];
     [self addSubview:self.indicatorView];

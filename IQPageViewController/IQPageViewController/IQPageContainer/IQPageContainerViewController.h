@@ -1,16 +1,14 @@
 //
-//  IQPageContainerView.h
-//  IQPageViewController
+//  IQPageContainerViewController.h
+//  sss
 //
-//  Created by nanli on 2020/4/15.
+//  Created by nanli on 2020/4/23.
 //  Copyright © 2020 darchain. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
-
-@class IQPageContainerView;
 @protocol IQPageContainerScrollerDelegate <NSObject>
 
 /// viewController 滑动激化 titleView 索引变化
@@ -21,13 +19,16 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)iQPageContainerEndScroller:(NSInteger)index;
 @end
 
-@interface IQPageContainerView : UIView
+
+@interface IQPageContainerViewController : UIViewController
+
 /** */
 @property (nonatomic, weak) id<IQPageContainerScrollerDelegate> pageContainerScrollerDelegate;
 /** */
 @property (nonatomic, strong) NSArray <UIViewController *> *viewControllerList;
 
 - (void)iQPageContainerScrollerDidScroll:(NSInteger)index distanceProgress:(CGFloat)progress;
+
 @end
 
 NS_ASSUME_NONNULL_END
