@@ -13,17 +13,14 @@
 @interface IQPageScrContainerView ()<UITableViewDataSource, UITableViewDelegate, IQPageContainerScrollerDelegate, IQPageScrTitleViewScrollerDelegate>
 
 /** */
-@property (nonatomic, assign) CGFloat titleViewHeight;
-
-/** */
-@property (nonatomic, assign) BOOL tableHeaderViewScroll;
-/** */
 @property (nonatomic, strong) IQPageContainerViewController *containerVC;
+
 @end
 
 @implementation IQPageScrContainerView
 
 static UIViewController *_sj_get_top_view_controller() {
+    
     UIViewController *vc = UIApplication.sharedApplication.keyWindow.rootViewController;
     while (  [vc isKindOfClass:[UINavigationController class]] ||
              [vc isKindOfClass:[UITabBarController class]] ||
@@ -50,11 +47,6 @@ static UIViewController *_sj_get_top_view_controller() {
 
 - (void)subviewCreate {
     
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.frame), 200)];
-    self.tableHeaderViewScroll = YES;
-    self.tableHeaderView = headerView;
-    headerView.backgroundColor = [UIColor purpleColor];
-    self.tableView.tableHeaderView = headerView;
     [self addSubview:self.tableView];
     self.scrTitleView.scrollerDelegate = self;
 
@@ -75,6 +67,14 @@ static UIViewController *_sj_get_top_view_controller() {
     return 1;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    CGFloat rowHeight = CGRectGetHeight(self.frame)-self.titleViewHeight;
+    if (!self.enableScroll) {
+        rowHeight -= CGRectGetHeight(self.tableHeaderView.frame);
+    }
+    return rowHeight;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class])];
     
@@ -83,8 +83,7 @@ static UIViewController *_sj_get_top_view_controller() {
     self.containerVC.view.frame = cell.bounds;
     [cell.contentView addSubview:self.containerVC.view];
     [self.containerVC didMoveToParentViewController:_sj_get_top_view_controller()];
-//    cell.containerView.pageContainerScrollerDelegate = self;
-//    cell.containerView.viewControllerList = self.viewControllerList;
+
     return cell;
 }
 
@@ -124,11 +123,8 @@ static UIViewController *_sj_get_top_view_controller() {
         _tableView.showsVerticalScrollIndicator = NO;
         _tableView.showsHorizontalScrollIndicator = NO;
         _tableView.sectionHeaderHeight = self.titleViewHeight;
-        CGFloat rowHeight = CGRectGetHeight(self.frame)-self.titleViewHeight;
-        if (self.tableHeaderViewScroll) {
-            rowHeight -= 200;
-        }
-        _tableView.rowHeight = rowHeight;
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
         [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
         if (@available(iOS 11.0, *)) {
             self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;

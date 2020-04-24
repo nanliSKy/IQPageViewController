@@ -24,8 +24,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSArray <UIViewController *> *viewControllerList;
 /** */
 @property (nonatomic, strong) UITableView *tableView;
-/** */
+/** 头部视图*/
 @property (nonatomic, strong) UIView *tableHeaderView;
+/** 标题栏高度*/
+@property (nonatomic, assign) CGFloat titleViewHeight;
+/** table 是否允许滑动*/
+@property (nonatomic, assign) BOOL enableScroll;
 /** */
 @property (nonatomic, strong) IQPageScrTitleView *scrTitleView;
 

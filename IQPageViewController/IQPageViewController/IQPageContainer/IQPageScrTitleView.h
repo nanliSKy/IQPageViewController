@@ -22,7 +22,7 @@ typedef NS_ENUM(NSInteger, iQPageTitleScrollType) {
 @class IQPageScrTitleView;
 @protocol IQPageScrTitleViewScrollerDelegate <NSObject>
 
-/// viewController 滑动激化 titleView 索引变化
+///  titleView click 索引变化
 /// @param index viewControllers 中的 的 index 位置viewController
 - (void)iQPageScrTitleViewDidScroll:(NSInteger)index;
 
@@ -30,13 +30,9 @@ typedef NS_ENUM(NSInteger, iQPageTitleScrollType) {
 
 @protocol IQPageScrTitleConfigDelegate <NSObject>
 
-- (NSInteger)iQPageScrTitle:(IQPageScrTitleView *)scrTitleView;
-
 @required
 /// 返回标题数组
 - (NSArray <IQPageTitleConfig *> *)iQPageScrTitleConfigArray;
-
-
 
 @end
 
@@ -47,11 +43,11 @@ typedef NS_ENUM(NSInteger, iQPageTitleScrollType) {
 @property (nonatomic, weak) id<IQPageScrTitleConfigDelegate> titleConfigDelegate;
 /** */
 @property (nonatomic, assign) iQPageTitleScrollType iQPageTitleScrollType;
-/** */
+/** 滑动线条颜色*/
 @property (nonatomic, strong) UIColor *indicatorColor;
-/** */
+/** 滑动线条宽度*/
 @property (nonatomic, assign) CGFloat indicatorWidth;
-/** */
+/** 遮罩颜色*/
 @property (nonatomic, strong) UIColor *coverColor;
 
 - (void)reloadData;

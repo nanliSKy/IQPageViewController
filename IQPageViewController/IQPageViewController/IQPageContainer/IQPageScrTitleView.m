@@ -35,8 +35,6 @@
 /** */
 @property (nonatomic, assign) NSInteger column;
 /** */
-@property (nonatomic, assign) NSInteger titleCount;
-/** */
 @property (nonatomic, assign) NSInteger currentIndex;
 /** */
 @property (nonatomic, strong) UIView *indicatorView;
@@ -59,16 +57,14 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+         self.backgroundColor = [UIColor whiteColor];
          [self subviewCreate];
     }
     return self;
 }
 
 - (void)reloadData {
-    if (self.titleConfigDelegate && [self.titleConfigDelegate respondsToSelector:@selector(iQPageScrTitle:)]) {
-        self.titleCount = [self.titleConfigDelegate iQPageScrTitle:self];
-    }
-    
+ 
     [self.collectionView reloadData];
     IQPageScrTitleViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([IQPageScrTitleViewCell class]) forIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
     [self updateIndicatorViewConstraints:cell.bounds];
@@ -138,7 +134,9 @@
 
 - (void)setTitleConfigDelegate:(id<IQPageScrTitleConfigDelegate>)titleConfigDelegate {
     _titleConfigDelegate = titleConfigDelegate;
-    self.pageTitleConfigs = [self.titleConfigDelegate iQPageScrTitleConfigArray];
+    if (self.titleConfigDelegate && [self.titleConfigDelegate respondsToSelector:@selector(iQPageScrTitleConfigArray)]) {
+        self.pageTitleConfigs = [self.titleConfigDelegate iQPageScrTitleConfigArray];
+    }
 }
 
 - (void)updateIndicatorViewConstraints:(CGRect)benchFrame {
@@ -181,11 +179,6 @@
             [self modifyColorWithScrollProgress:progress LeftIndex:index RightIndex:next];
             break;
     }
-    
-//    [self modifyCoverWithScrollProgress:progress LeftIndex:index RightIndex:next];
-//    [self modifyColorWithScrollProgress:progress LeftIndex:index RightIndex:next];
-    
-//    [self modifyTitleScaleWithScrollProgress:scale LeftIndex:index RightIndex:next];
 }
 
 
@@ -322,7 +315,7 @@ CG_EXTERN NSArray* IQColorGetRGBA(UIColor *color) {
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.titleCount;
+    return self.pageTitleConfigs.count;
 }
 
 
@@ -352,9 +345,6 @@ CG_EXTERN NSArray* IQColorGetRGBA(UIColor *color) {
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 
-    if (self.scrollerDelegate && [self.scrollerDelegate respondsToSelector:@selector(iQPageScrTitleViewDidScroll:)]) {
-        [self.scrollerDelegate iQPageScrTitleViewDidScroll:indexPath.row];
-    }
 
     [self.collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
     self.currentIndex = indexPath.row;
@@ -372,6 +362,9 @@ CG_EXTERN NSArray* IQColorGetRGBA(UIColor *color) {
             break;
     }
     
+    if (self.scrollerDelegate && [self.scrollerDelegate respondsToSelector:@selector(iQPageScrTitleViewDidScroll:)]) {
+        [self.scrollerDelegate iQPageScrTitleViewDidScroll:indexPath.row];
+    }
 }
 
 

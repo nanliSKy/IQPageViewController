@@ -19,10 +19,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor systemBackgroundColor];
     self.edgesForExtendedLayout = UIRectEdgeNone;
-    NSLog(@"%@  %@",NSStringFromCGRect(UIScreen.mainScreen.bounds), NSStringFromCGRect(self.view.frame));
-    IQPageScrContainerView *containerView = [[IQPageScrContainerView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame)-64)];
+    
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 200)];
+    headerView.backgroundColor = [UIColor purpleColor];
+    
+    IQPageScrContainerView *containerView = [[IQPageScrContainerView alloc] initWithFrame:self.view.frame];
+    containerView.tableHeaderView = headerView;
     containerView.scrContainerDelegate = self;
     containerView.scrTitleView.titleConfigDelegate = self;
     containerView.scrTitleView.iQPageTitleScrollType = iQPageTitleScrollColorAndLine;
@@ -57,7 +60,4 @@
     return arr;
 }
 
-- (NSInteger)iQPageScrTitle:(IQPageScrTitleView *)scrTitleView {
-    return self.controllerTitles.count;
-}
 @end
